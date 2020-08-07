@@ -10,13 +10,19 @@ import "./App.css";
 import {useDarkMode} from './hooks/useDarkMode'
 
 const StyledApp = styled.div`
-  background-color: ${(props) => (props.state.checked ? "black" : "white")};
+  &,
+  form {
+    background-color: ${(props) =>
+      props.state.checked ? "#212529" : "#F8F9FA"};
+  }
 
   h1,
+  h2,
+  label,
   .switch,
   .plant-details,
   .plant-name {
-    color: ${(props) => (props.state.checked ? "white" : "black")};
+    color: ${(props) => (props.state.checked ? "#F8F9FA" : "#212529")};
   }
 `
 
