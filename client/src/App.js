@@ -7,6 +7,7 @@ import Switch from "@material-ui/core/Switch"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import styled from 'styled-components'
 import "./App.css";
+import {useDarkMode} from './hooks/useDarkMode'
 
 const StyledApp = styled.div`
   background-color: ${(props) => (props.state.checked ? "black" : "white")};
@@ -22,14 +23,11 @@ const StyledApp = styled.div`
 function App() {
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
-  const [state, setState] = useState({
+  const [state, handleChange] = useDarkMode({
     checked: true,
   })
 
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked })
-  }
-
+ 
   // add a plant to the cart
   const addToCart = (plant) => {
     setCart([...cart, plant]);
